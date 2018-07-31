@@ -7,7 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
+import {Platform, StyleSheet, Text, View, NativeModules, TouchableOpacity} from 'react-native';
+
+const PESDK = NativeModules.PESDK;
+const ImagePath = "./assets/test.png";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,6 +21,11 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+    onOpenEditorPress () {
+        PESDK.present(ImagePath);
+    }
+
   render() {
     console.log(NativeModules);
     const CalendarManager = NativeModules.CalendarManager;
@@ -27,6 +35,9 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+          <TouchableOpacity onPress={this.onOpenEditorPress.bind(this)}>
+              <Text style={styles.button}>Push PESDK Editor</Text>
+          </TouchableOpacity>
       </View>
     );
   }

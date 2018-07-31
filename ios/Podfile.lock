@@ -1,0 +1,16 @@
+PODS:
+  - PhotoEditorSDK (8.3.9)
+
+DEPENDENCIES:
+  - PhotoEditorSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PhotoEditorSDK
+
+SPEC CHECKSUMS:
+  PhotoEditorSDK: 22216c00e03811413ebbf838219c4f65452b7182
+
+PODFILE CHECKSUM: d7084ee0f4f4a61f0a585fe6350740001ce4e633
+
+COCOAPODS: 1.5.3
