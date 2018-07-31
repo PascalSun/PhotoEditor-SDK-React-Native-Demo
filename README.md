@@ -1,6 +1,8 @@
 # Set up the demo for react native photo sdk editor
 [PhotoEditor SDK](https://www.photoeditorsdk.com/)
+
 There is a official blog about how to set it up, however, there are some errors inside it, and it is not up to date.
+
 Even though there is an official demo repo, if you clone it, without correct instruction, you will still not be able to run it.
 
 So I tried to give a detailed instruction about how to set it up with react native.
