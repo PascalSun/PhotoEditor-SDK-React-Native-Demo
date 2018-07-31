@@ -15,8 +15,10 @@
 // To export a module named CalendarManager
 RCT_EXPORT_MODULE();
 
+// This would name the module AwesomeCalendarManager instead
 RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 {
   RCTLogInfo(@"Pretending to create an event %@ at %@", name, location);
 }
+
 @end
