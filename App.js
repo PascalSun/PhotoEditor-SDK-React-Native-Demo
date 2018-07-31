@@ -20,8 +20,8 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     console.log(NativeModules);
-    // const CalendarManager = NativeModules.CalendarManager;
-    // CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
+    const CalendarManager = NativeModules.CalendarManager;
+    CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
