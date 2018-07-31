@@ -10,7 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, NativeModules, TouchableOpacity} from 'react-native';
 
 const PESDK = NativeModules.PESDK;
-const ImagePath = "./assets/test.png";
+const ImagePath = "test.png";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
