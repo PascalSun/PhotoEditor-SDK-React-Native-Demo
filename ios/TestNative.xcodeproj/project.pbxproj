@@ -38,6 +38,7 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7951992C210FF26700997BF9 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7951992B210FF26700997BF9 /* CalendarManager.m */; };
 		79BE1D6A210FF41F00652D46 /* PESDKModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BE1D69210FF41F00652D46 /* PESDKModule.m */; };
+		79BE1DC32110059B00652D46 /* LICENSE_IOS in Resources */ = {isa = PBXBuildFile; fileRef = 79BE1DC22110059B00652D46 /* LICENSE_IOS */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		EA48875E7D573E3952F3A634 /* libPods-TestNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C70A825C26CF35FA5BBE4F /* libPods-TestNative.a */; };
@@ -350,6 +351,7 @@
 		7951992B210FF26700997BF9 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
 		79BE1D68210FF41F00652D46 /* PESDKModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PESDKModule.h; sourceTree = "<group>"; };
 		79BE1D69210FF41F00652D46 /* PESDKModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PESDKModule.m; sourceTree = "<group>"; };
+		79BE1DC22110059B00652D46 /* LICENSE_IOS */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE_IOS; sourceTree = "<group>"; };
 		81C70A825C26CF35FA5BBE4F /* libPods-TestNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				79BE1DC22110059B00652D46 /* LICENSE_IOS */,
 				79BE1D68210FF41F00652D46 /* PESDKModule.h */,
 				79BE1D69210FF41F00652D46 /* PESDKModule.m */,
 				7951992A210FF26700997BF9 /* CalendarManager.h */,
@@ -1076,6 +1079,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79BE1DC32110059B00652D46 /* LICENSE_IOS in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
