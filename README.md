@@ -7,6 +7,8 @@ Even though there is an official demo repo, if you clone it, without correct ins
 
 So I tried to give a detailed instruction about how to set it up with react native.
 
+NOTE: You might need to run through all the steps below to make it work, not just clone it.
+
 ## Setup React Native
 1. install `react-native`
 2. `react-native init TestNative`
