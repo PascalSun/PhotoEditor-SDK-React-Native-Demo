@@ -106,6 +106,21 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
+    }
+    packagingOptions {
+         pickFirst 'lib/armeabi-v7a/libRSSupport.so'
+         pickFirst 'lib/arm64-v8a/librsjni.so'
+         pickFirst 'lib/arm64-v8a/libRSSupport.so'
+         pickFirst 'lib/mips/libRSSupport.so'
+         pickFirst 'lib/x86/libRSSupport.so'
+         pickFirst 'lib/mips/librsjni.so'
+         pickFirst 'lib/x86_64/libRSSupport.so'
+         pickFirst 'lib/x86/librsjni.so'
+         pickFirst 'lib/x86_64/librsjni.so'
+         pickFirst 'lib/armeabi-v7a/librsjni.so'
+
     }
     splits {
         abi {
@@ -138,6 +153,7 @@ android {
 
 dependencies {
     compile project(':react-native-fs')
+    compile 'ly.img.android:photo-editor-sdk:5.1.4'
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     compile "com.facebook.react:react-native:+"  // From node_modules

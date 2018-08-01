@@ -25,6 +25,7 @@ export default class PESDKDemo extends Component {
             dataSource: ds.cloneWithRows(this._rows(this._generateItems())),
             output: 'Select an image to edit...'
         }
+        console.log(NativeModules)
     }
 
     _generateItems () {

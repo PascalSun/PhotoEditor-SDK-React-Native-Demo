@@ -1,5 +1,6 @@
 package com.testnative;
 
+import com.pesdk.PESDKPackage;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
@@ -11,6 +12,8 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+
+import ly.img.android.PESDK;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -24,7 +27,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNFSPackage()
+            new RNFSPackage(),
+            new PESDKPackage()
       );
     }
 
@@ -43,5 +47,6 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    PESDK.init(this, "LICENSE");
   }
 }
