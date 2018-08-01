@@ -136,3 +136,84 @@ We can install it with `pod`
 1. install it via npm: `npm install react-native-fs --save`
 2. link it: `react-native link`
 3. Have not finished here, check this link, do as the step 1 & 2, [import lib link](https://facebook.github.io/react-native/docs/linking-libraries-ios.html)
+
+
+## Set up android native modules
+0. set `react-native-fs`
+1. install photoEditorSdk
+2. create native modules
+3. config License
+4. resolve other issues
+
+### set up react-native-fs
+as react-native-fs is a native module lib, so in `android/build.gradle`, add 
+```android
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
+            }
+        }
+    }
+}
+
+```
+
+### install photoEditorSDK:
+
+1. in `android/build.gradle`, add `maven { url "https://artifactory.9elements.com/artifactory/imgly" }` in `allprjects` part.
+2. as `react-native-fs` and `photoEditorSDK` have some shared lib, so we need add the config packageOptions in app config.
+    - in `android/app/build.gradle`, in `android { } `add 
+    ```android
+        packagingOptions {
+             pickFirst 'lib/armeabi-v7a/libRSSupport.so'
+             pickFirst 'lib/arm64-v8a/librsjni.so'
+             pickFirst 'lib/arm64-v8a/libRSSupport.so'
+             pickFirst 'lib/mips/libRSSupport.so'
+             pickFirst 'lib/x86/libRSSupport.so'
+             pickFirst 'lib/mips/librsjni.so'
+             pickFirst 'lib/x86_64/libRSSupport.so'
+             pickFirst 'lib/x86/librsjni.so'
+             pickFirst 'lib/x86_64/librsjni.so'
+             pickFirst 'lib/armeabi-v7a/librsjni.so'
+    
+        }
+    ```
+    - the same file, in dependencies add: `compile 'ly.img.android:photo-editor-sdk:5.1.4'`
+    - in  `android/app/src/main/AndroidManifest.xml`, change `android:allowBackup` value to `true`
+    - the same file as above, add permission configuration: 
+        ```android
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        ```
+
+### add native modules
+1. create the folder `pesdk` under `/android/app/src/main/java/com/`
+2. add 2 file inside the folder: `PESDKModule.java` and `PESDKPackage.java`, check the repo for the content of the 2 files
+3. add PESDKconfig in Main(`android/app/src/main/java/com/testnative/MainApplication.java`):
+    - `import com.pesdk.PESDKPackage;`
+    -  `import ly.img.android.PESDK;`
+    - and inside ` getPackages()`, add PESDK: `new PESDKPackage()`
+
+
+### Config License
+The same as the ios setting part, the application_id for the application is in `android/app/build.gradle`
+
+Download the License file, and create `assets` folder inside `android/app/src/main`, put the License file inside it.
+
+Then in `android/app/src/main/java/com/testnative/MainApplication.java`, add `PESDK.init(this, 'License name')` under `SoLader.init`
+
+
+## Other issues
+1. renderscript problem: 
+   - solution: in `android/app/build.gradle`, defaultconfig, add: 
+    ```android
+      renderscriptTargetApi 18
+      renderscriptSupportModeEnabled true
+    ```
+
+    
+
+       
