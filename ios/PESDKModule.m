@@ -9,6 +9,7 @@
 #import "PESDKModule.h"
 #import <React/RCTUtils.h>
 #import <PhotoEditorSDK/PhotoEditorSDK.h>
+#import <React/RCTLog.h>
 
 @interface PESDKModule () <PESDKPhotoEditViewControllerDelegate>
 @end
@@ -24,6 +25,30 @@ RCT_EXPORT_METHOD(present:(NSString *)path) {
     
     UIViewController *currentViewController = RCTPresentedViewController();
     [currentViewController presentViewController:photoEditViewController animated:YES completion:NULL];
+  });
+}
+
+- (PESDKConfiguration *)buildConfiguration {
+  PESDKConfiguration *configuration = [[PESDKConfiguration alloc] initWithBuilder:^(PESDKConfigurationBuilder * _Nonnull builder) {
+    // Configure camera
+    [builder configureCameraViewController:^(PESDKCameraViewControllerOptionsBuilder * _Nonnull options) {
+      // Just enable Photos
+      options.allowedRecordingModesAsNSNumbers = @[@(RecordingModePhoto)];
+    }];
+  }];
+  
+  return configuration;
+}
+
+RCT_EXPORT_METHOD(camera:(NSString *)name){
+  RCTLogInfo(@"STATUS");
+  dispatch_async(dispatch_get_main_queue(), ^{
+    PESDKConfiguration *configuration = [self buildConfiguration];
+    PESDKCameraViewController *cameraViewController = [[PESDKCameraViewController alloc] initWithConfiguration:configuration];
+    __weak PESDKCameraViewController *weakCameraViewController = cameraViewController;
+
+    UIViewController *currentViewController = RCTPresentedViewController();
+    [currentViewController presentViewController:cameraViewController animated:YES completion:NULL];
   });
 }
 
