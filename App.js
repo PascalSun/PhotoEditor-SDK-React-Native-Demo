@@ -111,7 +111,8 @@ export default class PESDKDemo extends Component {
         const imagePath = RNFS.DocumentDirectoryPath + '/image.jpeg'
         this.setState({ downloading: true })
         RNFS.downloadFile({ fromUrl: imageUrl, toFile: imagePath, progress: progress }).promise.then(result => {
-            PESDK.present(imagePath)
+            // PESDK.present(imagePath)
+            PESDK.camera(imagePath)
             this.setState({ output: 'Select an image to edit...' })
         })
     }
